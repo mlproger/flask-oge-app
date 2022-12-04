@@ -17,6 +17,11 @@ api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
 def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
+@app.route("/<string:correct>/<string:user_answer>")
+def index(correct, user_answer):
+    return jsonify({"Ans": text_sum.getResult(correct, user_answer)})
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
