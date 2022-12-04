@@ -6,7 +6,7 @@ import text_sum
 
 class CRUDClass(Resource):
     def get(self, correct, user_answer):
-        return jsonify({text_sum.getResult(user_answer, correct)})
+        return text_sum.getResult(user_answer, correct)
 
 app = Flask(__name__)
 api = Api(app)
