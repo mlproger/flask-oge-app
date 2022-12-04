@@ -20,7 +20,7 @@ def index():
 @app.route('/<correct>/<user_answer>')
 async def rec(correct, user_answer):
     ans = await text_sum.getResult(user_answer, correct)
-    return jsonify({"Ans": ans})
+    return jsonify({"Ans": correct})
 
 @app.route('/test')
 def hello():
