@@ -18,7 +18,7 @@ def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 @app.route("/<correct>/<user_answer>")
-def index(correct, user_answer):
+def rec(correct, user_answer):
     return jsonify({"Ans": text_sum.getResult(correct, user_answer)})
 
 
