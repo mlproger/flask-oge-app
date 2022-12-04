@@ -17,10 +17,10 @@ api = Api(app)
 def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
-@app.route('/<correct>/<user_answer>')
-async def rec(correct, user_answer):
-    #ans = await text_sum.getResult(user_answer, correct)
-    return jsonify({"Ans": correct})
+@app.route('/<string:correct>/<string:user_answer>')
+def rec(correct, user_answer):
+    ans = text_sum.getResult(user_answer, correct)
+    return jsonify({"Ans": ans})
 
 @app.route('/test')
 def hello():
