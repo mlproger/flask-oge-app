@@ -9,7 +9,7 @@ class CRUDClass(Resource):
         return text_sum.getResult(user_answer, correct)
 
 
-if __name__ == '__main__':
+if __name__ == __name__:
     app = Flask(__name__)
     api = Api(app)
     api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
