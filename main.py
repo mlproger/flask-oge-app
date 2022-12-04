@@ -13,6 +13,10 @@ class CRUDClass(Resource):
 def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
+@app.route('/<string:correct>/<string:user_answer>')
+def rec():
+    api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
+
 
 if __name__ == '__main__':
     api = Api(app)
