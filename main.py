@@ -17,9 +17,15 @@ api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
 def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
-@app.route("/<correct>/<user_answer>")
-def rec(correct, user_answer):
-    return jsonify({"Ans": text_sum.getResult(correct, user_answer)})
+@app.route('/<correct>/<user_answer>')
+async def rec(correct, user_answer):
+    ans = await text_sum.getResult(user_answer, correct)
+    return jsonify({"Ans": ans})
+
+@app.route('/test')
+def hello():
+    return jsonify({"Ans": "Test"})
+
 
 
 
