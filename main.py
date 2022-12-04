@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 #from flask_restful import Api, Resource, reqparse
 import os
-import text_sum
+#import text_sum
 
 app = Flask(__name__)
 
