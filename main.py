@@ -4,13 +4,13 @@ import os
 import text_sum
 
 
-class CRUDClass(Resource):
-    def get(self, correct, user_answer):
-        return text_sum.getResult(user_answer, correct)
+# class CRUDClass(Resource):
+#     def get(self, correct, user_answer):
+#         return text_sum.getResult(user_answer, correct)
 
 app = Flask(__name__)
 api = Api(app)
-api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
+#api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
 
 
 @app.route('/')
@@ -19,7 +19,7 @@ def index():
 
 @app.route('/<correct>/<user_answer>')
 async def rec(correct, user_answer):
-    ans = await text_sum.getResult(user_answer, correct)
+    #ans = await text_sum.getResult(user_answer, correct)
     return jsonify({"Ans": correct})
 
 @app.route('/test')
