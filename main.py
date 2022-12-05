@@ -26,7 +26,7 @@ def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 @app.route('/<string:correct>/<string:user_answer>')
-@limiter.limit("1/seconds")
+@limiter.limit("2/seconds")
 def rec(correct, user_answer):
     ans = text_sum.getResult(user_answer, correct)
     return jsonify({"ans": ans})
