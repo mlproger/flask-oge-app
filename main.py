@@ -3,12 +3,10 @@ from flask_restful import Api, Resource, reqparse
 import os
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-import text_sum
 
+import spacy
+from spacy.lang.ru.examples import sentences 
 
-# class CRUDClass(Resource):
-#     def get(self, correct, user_answer):
-#         return text_sum.getResult(user_answer, correct)
 
 app = Flask(__name__)
 api = Api(app)
@@ -18,7 +16,7 @@ limiter = Limiter(
     default_limits=["200 per day", "50 per hour"],
     storage_uri="memory://",
 )
-#api.add_resource(CRUDClass, "/<string:correct>/<string:user_answer>")
+
 
 
 @app.route('/')
@@ -26,9 +24,11 @@ def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 @app.route('/<string:correct>/<string:user_answer>')
-@limiter.limit("2/seconds")
 def rec(correct, user_answer):
-    ans = text_sum.getResult(user_answer, correct)
+    nlp = spacy.load("ru_core_news_lg")
+    user_answer = nlp(user_answer)
+    correct = nlp(correct)
+    ans = user_answer.similarity(correct)
     return jsonify({"ans": ans})
 
 @app.route('/test')
