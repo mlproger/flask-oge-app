@@ -10,3 +10,4 @@ spacy==3.4.3
 Flask-Limiter
 https://github.com/explosion/spacy-models/releases/download/ru_core_news_lg-3.4.0/ru_core_news_lg-3.4.0-py3-none-any.whl
 celery
+sentence_transformers
