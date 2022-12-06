@@ -14,7 +14,7 @@ async def ind(correct, user_answer):
     return jsonify({"A": text_sum.getResult(user_answer, correct)})
     
 @app.route('/')
-def hello():
+def hi():
     return jsonify({"Ans": "HI"})   
     
 @app.route('/test')
