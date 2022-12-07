@@ -51,7 +51,7 @@ def getResult(f_s, s_s):
 
 @app.route('/<string:correct>/<string:user_answer>')
 async def ind(correct, user_answer):
-    ans = getResult.delay(user_answer, correct)
+    getResult.delay(user_answer, correct)
     return jsonify({"A": "OK"})
     
 
