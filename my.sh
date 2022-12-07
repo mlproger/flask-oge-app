@@ -1,0 +1,1 @@
+celery -A main.celery worker --pool=solo --loglevel=INFO  -Q web
