@@ -36,7 +36,6 @@ def make_celery():
 
     celery.Task = ContextTask
     return celery
-
 celery = make_celery()
 
 @celery.task(name='web.getAnswer')
