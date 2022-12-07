@@ -1,5 +1,5 @@
 import spacy
-from main import make_celery
+from api import make_celery
 
 celery = make_celery()
 
