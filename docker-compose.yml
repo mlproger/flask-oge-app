@@ -6,4 +6,5 @@ services:
     build:
       context: ./
     command: celery -A main.celery worker --pool=solo --loglevel=INFO -Q web
-
+    ports:
+      - '5000:5000'
