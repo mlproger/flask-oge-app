@@ -6,5 +6,5 @@ COPY config.py /tmp/config.py
 
 RUN pip install -r /tmp/requirements.txt
 
-ENTRYPOINT ["python"]
-CMD ["main.py"]
+ENTRYPOINT ["gunicorn"]
+CMD ["app:main"]
