@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  hello:
+    build:
+      context: ./
+    ports:
+      [5000:5000]
+
+
+    #   celery:
+    # build: .
+    # container_name: 'demo_app_celery'
+    # command: celery -A main.celery worker --pool=solo --loglevel=INFO -Q web
