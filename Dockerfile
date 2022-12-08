@@ -1,7 +1,6 @@
 FROM python:3.10
-
-COPY requirements.txt /tmp
 WORKDIR /tmp
+COPY requirements.txt /tmp
 
 RUN pip install -r requirments.txt
 
