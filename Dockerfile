@@ -7,4 +7,4 @@ COPY config.py /tmp/config.py
 RUN pip install -r /tmp/requirements.txt
 
 ENTRYPOINT ["gunicorn"]
-CMD ["app:main"]
+CMD ["main:app"]
